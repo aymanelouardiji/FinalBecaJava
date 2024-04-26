@@ -1,0 +1,62 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <title>Seances</title>
+</head>
+<body>
+<section layout:fragment="header">
+    <h1>Seances</h1>
+<ol class="breadcrumb">
+    <li><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li class="active">Seances</li>
+</ol>
+</section>
+<div layout:fragment="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Lists</h3>
+            <div class="box-tools pull-right">
+                <a href="/seance/add" type="button" class="btn btn-box-tool"><i class="fa fa-plus"></i></a>
+                <br clear="all" />
+            </div>
+        </div>
+        <div class="box-body no-padding">
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Date de projection</th>       
+                    <th>Heure de debut</th>  
+                    <th>Heure de fin</th>  
+                    <th>Film</th> 
+                    <th>Salle</th> 
+                    <th>Action</th>
+                </tr>
+                <tr th:each="row : ${listSeances}">
+                    
+                    <td th:text="${row.id}"></td>
+                    <td th:text="${row.dateProjection}"></td>
+                    <td th:text="${row.heureDebut}"></td>
+                    <td th:text="${row.heureFin}"></td>
+                    <td th:text="${row.film.titre}"></td>
+                    <td th:text="${row.salle.numero}"></td>
+                    <td>
+                        <a th:href="@{/seance/edit/{id}(id=${row.id})}" class="btn btn-primary">Edit</a>
+                        <a th:href="@{/seance/delete/{id}(id=${row.id})}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="box-footer clearfix">
+            <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a href="/seance/1">First</a></li>
+                <li th:each="p : ${#numbers.sequence(1, endIndex/beginIndex)}" th:class="${p == currentIndex} ? 'active' : ''">
+                    <a th:href="${'/seance/' + p}" th:text="${p}"></a>
+                </li>
+                <li><a th:href="${'/seance/' + endIndex}">Last</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

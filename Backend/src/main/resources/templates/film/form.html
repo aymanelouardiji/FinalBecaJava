@@ -1,0 +1,87 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+  <title>Ajout de Film</title>
+  <!-- Include jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Include Select2 library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0/js/select2.min.js"></script>
+</head>
+<body>
+<section layout:fragment="header">
+  <h1>Ajout de Film</h1>
+  <ol class="breadcrumb">
+    <li><a href="/"><i class="fa fa-dashboard"></i> Tableau de bord</a></li>
+    <li class="active">Ajout de Film</li>
+  </ol>
+</section>
+<div layout:fragment="content">
+  <div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Formulaire</h3>
+      <div class="box-tools pull-right">
+        <a href="/film" type="button" class="btn btn-box-tool"><i class="fa fa-list-ul"></i></a>
+      </div>
+    </div>
+    <form th:action="@{/film/save}" method="post" enctype="multipart/form-data">
+      <div class="box-body">
+        <div class="form-group">
+          <label for="titre">Titre</label>
+          <input type="text" class="form-control" id="titre" name="titre" required="true"/>
+        </div>
+        <div class="form-group">
+          <label for="duree">Durée</label>
+          <input type="number" class="form-control" id="duree" name="duree" required="true"/>
+        </div>
+        <div class="form-group">
+          <label for="annee">Année</label>
+          <input type="number" class="form-control" id="annee" name="annee" required="true"/>
+        </div>
+        <div class="form-group">
+          <label for="genre">Genre</label>
+          <select class="form-control" id="genre" name="genre" required="true">
+            <option th:each="genre : ${listeGenres}" th:value="${genre.id}" th:text="${genre.libelle}"></option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="nationalite">Nationalité</label>
+          <select class="form-control" id="nationalite" name="nationalite" required="true">
+            <option th:each="nationalite : ${listeNationalites}" th:value="${nationalite.id}" th:text="${nationalite.libelle}"></option>
+          </select>
+        </div>
+
+
+
+        <div class="form-group">
+          <label for="realisateur">Realisateur</label>
+          <select class="form-control" id="realisateur" name="realisateur" required="true">
+            <option th:each="realisateur : ${listRealisateurs}" th:value="${realisateur.id}" th:text="${realisateur.nom}"></option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+		  <label for="acteurs">Acteurs</label>
+		  <select class="form-control" id="acteurs" name="acteurs" multiple>
+		    <option th:each="acteur : ${listActeurs}" th:value="${acteur.id}" th:text="${acteur.nom}"></option>
+		  </select>
+		</div>
+
+
+        <div class="form-group">
+          <label for="media">Média</label>
+          <input type="file" class="form-control" id="media" name="file" accept="image/,video/" multiple required="true"/>
+          <!-- Display current medias if available -->
+          <img th:if="${film.medias}" th:src="@{'/' + ${film.medias}}" class="img-fluid"
+               alt="Current Photo"/>
+        </div>
+      </div>
+      <div class="box-footer">
+        <button class="btn btn-primary" type="submit">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>

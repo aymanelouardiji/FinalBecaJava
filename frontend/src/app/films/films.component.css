@@ -1,0 +1,604 @@
+/*--------------------------------------------------------------
+# Hero Section
+--------------------------------------------------------------*/
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: url("src/assets/images/hero-bg.png") top center no-repeat;
+    background-size: cover;
+  }
+  
+  .hero h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: 700;
+    color: #012970;
+  }
+  
+  .hero h2 {
+    color: #444444;
+    margin: 15px 0 0 0;
+    font-size: 26px;
+  }
+  
+  .hero .btn-get-started {
+    margin-top: 30px;
+    margin-left: 200px;
+    text-decoration: none;
+    line-height: 0;
+    padding: 28px 22px;
+    border-radius: 6px;
+    transition: 0.5s;
+    color: #fff;
+    background: #4154f1;
+    box-shadow: 0px 5px 30px rgba(65, 84, 241, 0.4);
+  }
+  
+  .hero .btn-get-started:hover {
+    color: #000;
+    background-color: rgb(rgb(28, 186, 218), green, blue);
+  }
+  
+  .hero .btn-get-started span {
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 25px;
+    letter-spacing: 1px;
+  }
+  
+  .hero .btn-get-started i {
+    margin-left: 5px;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+  
+  .hero .btn-get-started:hover i {
+    transform: translateX(5px);
+  }
+  
+  .hero .hero-img {
+    text-align: right;
+  }
+  
+  .hero-header h1 {
+    font-size: 40px;
+    text-align: justify;
+  }
+  
+  @media (min-width: 1024px) {
+    .hero {
+      background-attachment: fixed;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .hero {
+      height: auto;
+      padding: 120px 0 60px 0;
+    }
+  
+    .hero .hero-img {
+      text-align: center;
+      margin-top: 80px;
+    }
+  
+    .hero .hero-img img {
+      width: 80%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      text-align: center;
+    }
+  
+    .hero h1 {
+      font-size: 32px;
+    }
+  
+    .hero h2 {
+      font-size: 24px;
+    }
+  
+    .hero .hero-img img {
+      width: 100%;
+    }
+  }
+  
+
+
+
+
+/* product cards */
+#product-cards{
+    margin-top: 100px;
+}
+#product-cards h1{
+    color: #012970;
+    text-shadow: 1px 1px 1px black;
+    border-bottom: 2px solid rgb(0, 132, 255);
+}
+#product-cards .card h3{
+    font-size: 30px;
+    font-weight: bold;
+    color: red;
+}
+#product-cards .card p{
+    font-size: 12px;
+    margin-top: 5px;
+    color: black;
+}
+.star i{
+    margin-left: 5px;
+    font-size: 13px;
+}
+.checked{
+    color: #ffc800;
+}
+.product-rating{
+    font-weight: bold; 
+    color: yellow;
+    position: right;
+}
+#product-cards .card h2{
+    font-size: 20px;
+    color: black;
+    margin-top: 20px;
+}
+#product-cards .card h2 span{
+    float: right;
+    color: black;
+    cursor: pointer;
+}
+@media screen and (max-width:1000px){
+    #product-cards .card h3{
+        font-size: 15px;
+    }
+}
+
+#product-cards .card img {
+    width: 100%; /* Make the image fill the entire width of its container */
+    height: auto; /* Allow the height to adjust proportionally */
+    max-height: 300px; /* Set a maximum height to ensure consistency */
+  }
+  
+  .btn-details {
+    font-size: 18px; /* Adjust the font size to make the button smaller */
+    padding: 6px 8px; /* Adjust the padding to control the button size */
+}
+.film-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* Adjust margin for spacing */
+}
+
+.film-time {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold; /* Adjust color if needed */
+}
+
+.btn-details {
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+
+/* product cards */
+
+
+
+
+
+
+
+
+/* other cards */
+#other-cards{
+    margin-top: 30px;
+}
+#other-cards .card{
+    background-color: #a9a9a92b;
+}
+#other-cards .card h3{
+    margin-top: 30px;
+    color: black;
+    margin-left: 10px;
+    letter-spacing: 3px;
+}
+#other-cards .card h5{
+    margin-top: 15px;
+    font-weight: 100;
+    font-size: 18px;
+    color: black;
+    margin-left: 10px;
+    letter-spacing: 3px;
+    border-bottom: 2px solid black;
+    width: 220px;
+}
+#other-cards .card p{
+    margin-top: 10px;
+    font-weight: 100;
+    font-size: 15px;
+    color: black;
+    margin-left: 10px;
+    letter-spacing: 3px;
+}
+#shopnow{
+    width: 130px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+    letter-spacing: 3px;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width:1000px){
+    #other-cards .card h3{
+        margin-top: 5px;
+        font-size: 20px;
+    }
+    #other-cards .card h5{
+        margin-top: 5px;
+        font-size: 15px;
+    }
+    #other-cards .card p{
+        margin-top: 0px;
+    }
+    #shopnow{
+        margin-top: 0px;
+        width: 120px;
+        height: 30px;
+        font-size: 16px;
+    }
+}
+/* other cards */
+
+
+
+
+
+
+/* banner */
+.banner{
+    margin-top: 60px;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    background-color: #a9a9a92b;
+    z-index: 0;
+}
+.banner .img{
+    flex: 1 1 300px;
+}
+.banner .img img{
+    margin-top: 30px;
+    width: 100%;
+}
+.banner .content{
+    flex: 1 1 400px;
+    margin-top: 20px;
+}
+.banner .content h1{
+    color: rgb(67 0 86);
+    font-weight: bold;
+    margin-left: 23px;
+    font-size: 55px;
+    text-shadow: -1px 1px 1px black;
+}
+.banner .content h1 span{
+    color: rgb(67 0 86);
+    text-shadow: 1px 1px 1px black;
+}
+#span2{
+    color: #ffc800;
+}
+.banner .content p{
+    margin-left: 23px;
+}
+.btn{
+    margin-left: 13px;
+}
+.btn button{
+    width: 150px;
+    height: 32px;
+    letter-spacing: 3px;
+    background-color: rgb(67 0 86);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.btn button:hover{
+    background-color: #ffc800;
+    color: black;
+    border: none;
+}
+@media screen and (max-width:1200px){
+    .banner{
+        height: 90vh;
+    }
+}
+@media screen and (max-width:799px){
+    .banner{
+        height: 140vh;
+    }
+}
+@media screen and (max-width:550px){
+    .banner{
+        height: 110vh;
+    }
+}
+@media screen and (max-width:420px){
+   .banner .content h1{
+    font-size: 45px;
+   }
+}
+@media screen and (max-width:320px){
+   .banner .content h1{
+    font-size: 36px;
+   }
+}
+/* banner */
+
+
+
+
+
+
+
+
+
+/* other cards */
+#other{
+    margin-top: 50px;
+}
+#other .card{
+    box-shadow: rgba(17,12,46, 0.15) 0px 48px 100px 0px;
+}
+#other .card h3{
+    margin-top: 10px;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+#other .card p{
+    margin-top: 10px;
+    color: white;
+    text-shadow: 0px 1px 1px black;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+/* other cards */
+
+
+
+
+/* offer */
+#offer{
+    margin-top: 100px;
+}
+#offer i{
+    font-size: 32px;
+    color: black;
+}
+/* offer */
+
+
+
+
+/* newslater */
+#newslater{
+    margin-top: 100px;
+}
+#newslater h3{
+    font-size: 25px;
+    letter-spacing: 3px;
+}
+.input{
+    margin-top: 30px;
+}
+.input input{
+    width: 350px;
+    height: 36px;
+    letter-spacing: 2px;
+    border-radius: 3px;
+    border:  1px solid black;
+    padding-left: 5px;
+}
+#subscribe{
+    width: 200px;
+    height: 36px;
+    margin-left: 10px;
+    border-radius: 3px;
+    border: none;
+    background-color: #ffc800;
+    color: white;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 0px 0px 1px black;
+}
+@media screen and (max-width:465px){
+    .input input{
+        width: 280px;
+    }
+    #subscribe{
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width:250px){
+    .input input{
+        width: 150px;
+    }
+    #subscribe{
+        width: 150px;
+    }
+}
+/* newslater */
+
+
+
+
+
+
+
+html{
+    scroll-behavior: smooth;
+}
+.arrow{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 50px;
+    right: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+}
+
+
+
+
+
+/* login */
+#login{
+    width: 65%;
+    height: 70vh;
+    background-color: rgb(67 0 86);
+    margin-top: 35px;
+    border-radius: 10px;
+    box-shadow: rgba(17,12, 46, 0.15) 0px 48px 100px 0px;
+}
+#side1 h3{
+    color: #ffc800;
+    font-weight: bold;
+    margin-top: 200px;
+}
+#side2{
+    background-color: white;
+    height: 70vh;
+    border-radius: 10px;
+}
+#side2 h3{
+    margin-top: 30px;
+    color: #ffc800;
+    font-weight: bold;
+    text-shadow: 0px 1px 1px black;
+}
+.input2 input{
+    margin-top: 15px;
+    width: 300px;
+    border: none;
+    border-bottom: 2px solid #ffc800;
+}
+.input2 input ::placeholder{
+    font-weight: bold;
+}
+#btnlogin{
+    padding-top: 10px;
+}
+#btnlogin a{
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: #ffc800;
+    color: white;
+    font-weight: bold;
+    border: none;
+    text-shadow: 0px 0px 1px black;
+}
+#side2 p{
+    margin-top: 10px;
+}
+@media screen and (max-width:991px){
+    .input2 input{
+        width: 250px;
+    }
+}
+@media screen and (max-width:765px){
+    .input2 input{
+        width: 260px;
+    }
+    #side2{
+        height: 60vh;
+    }
+}
+/* login */
+
+
+
+
+/* about */
+#about{
+    margin-top: 30px;
+}
+#about h3{
+    font-weight: bold;
+    color: #ffc800;
+    text-shadow: 0px 1px 1px black;
+}
+#about button{
+    width: 150px;
+    height: 36px;
+    color: white;
+    background-color: rgb(67 0 86);
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* about */
+
+
+
+
+
+/* contact */
+#contact{
+    margin-top: 50px;
+}
+#contact .card{
+    height: 80px;
+    margin-top: 20px;
+    box-shadow: rgba(100, 100, 111 ,0.2) 0px 7px 29px 0px;
+}
+#contact .card i{
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 15px;
+    color: rgb(67 0 86);
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+#contact .card h6{
+    margin-left: 10px;
+    margin-top: 10px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    color: rgb(67 0 86);
+}
+.messagebtn button{
+    margin-top: 30px;
+    width: 200px;
+    height: 33px;
+    background: transparent;
+    border: 2px solid rgb(67 0 86);
+    font-weight: bold;
+    letter-spacing: 3px;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+.messagebtn button:hover{
+    background-color: rgb(67 0 86);
+    color: white;
+}
+/* contact */

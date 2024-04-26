@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+  <title>Film Details</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f7f7f7;
+    }
+
+    .container {
+      margin-top: 30px;
+    }
+
+    .details-box {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .box-header {
+      background-color: #60adff;
+      color: #fff;
+      padding: 15px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .box-title {
+      margin: 0;
+    }
+
+    .box-body {
+      padding: 20px;
+    }
+
+    .box-footer {
+      padding: 15px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      background-color: #f7f7f7;
+    }
+
+    .btn-back {
+      background-color: #60adff;
+      color: #fff;
+    }
+
+    .btn-back:hover {
+      background-color: #60adff;
+    }
+
+    /* Custom styles for image size */
+    .small-img {
+      max-width: 150px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+<section layout:fragment="header">
+  <div class="container">
+    <h1>Person Details</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="/film">Films List</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details</li>
+      </ol>
+    </nav>
+  </div>
+</section>
+<div layout:fragment="content">
+  <div class="container">
+    <div class="details-box">
+      <div class="box-header">
+        <h3 class="box-title">Details</h3>
+      </div>
+      <div class="box-body">
+        <dl class="row">
+          <dt class="col-sm-3">ID</dt>
+          <dd class="col-sm-9" th:text="${film.id}"></dd>
+          <dt class="col-sm-3">Titre</dt>
+          <dd class="col-sm-9" th:text="${film.titre}"></dd>
+
+          <dt class="col-sm-3">Date of Added</dt>
+          <dd class="col-sm-9" th:text="${film.addedDate}"></dd>
+          <dt class="col-sm-3">Duree</dt>
+          <dd class="col-sm-9" th:text="${film.duree}"></dd>
+          <dt class="col-sm-3">Annee</dt>
+          <dd class="col-sm-9" th:text="${film.annee}"></dd>
+          <dt class="col-sm-3">Nationality</dt>
+          <dd class="col-sm-9" th:text="${film.nationalite}"></dd>
+          <dt class="col-sm-3">Genre</dt>
+          <dd class="col-sm-9" th:text="${film.genre.libelle}"></dd>
+          <dt class="col-sm-3">Realisateur</dt>
+          <dd class="col-sm-9" th:text="${film.realisateur}"></dd>
+          <dt class="col-sm-3">Acteurs</dt>
+          <dd class="col-sm-9" th:text="${film.acteurs}"></dd>
+          
+          
+        </dl>
+
+        <!-- List of actors
+        <div class="form-group">
+          <label>Liste des acteurs</label>
+          <label for="acteur"></label><select th:field="*{film.acteurs}" id="acteur" name="acteur" class="select2 select2-hidden-accessible" multiple
+                                              data-placeholder="Select an actor" style="width: 100%;">
+            <option th:each="actor : ${listPersonnes}"
+                    th:value="${actor.id}"
+                    th:text="${actor.prenom} + ' ' + ${actor.nom}"></option>
+          </select>
+        </div>-->
+
+
+        <!-- Additional details -->
+        <dt class="col-sm-3">Seances</dt>
+        <dd class="col-sm-9">
+            
+                <div th:each="seance : ${film.seances}">
+                    <li>
+                        <span th:text="${#dates.format(seance.dateProjection, 'dd-MM-yyyy')}"></span>
+                        <span> - </span>
+                        <span th:text="${#dates.format(seance.heureDebut, 'HH:mm')}"></span>
+                        <span> to </span>
+                        <span th:text="${#dates.format(seance.heureFin, 'HH:mm')}"></span>
+                    </li>
+                </div>
+            
+        </dd>
+        <dt class="col-sm-3">Medias</dt>
+        <dd class="col-sm-9">
+			<div th:each="media : ${film.medias}">
+          <img th:src="@{${media.media}}" class="img-fluid rounded small-img" alt="Person Photo"/>
+			</div>
+			
+        </dd>
+      </div>
+      <div class="row">
+  <div class="col-sm-3">Realisateur</div>
+  <div class="col-sm-9">
+    <div th:each="realisateur : ${film.realisateur}">
+      <img th:src="@{${realisateur.photo}}" class="img-fluid rounded small-img" alt="Realisateur Photo"/>
+      <span th:text="${realisateur.prenom + ' ' + realisateur.nom}"></span>
+    </div>
+  </div>
+</div>
+<!-- Displaying actors with their pictures and names -->
+<div class="row">
+  <div class="col-sm-3">Acteurs</div>
+  <div class="col-sm-9">
+    <div th:each="acteur : ${film.acteurs}">
+      <img th:src="@{${acteur.photo}}" class="img-fluid rounded small-img" alt="Acteur Photo"/>
+      <span th:text="${acteur.prenom + ' ' + acteur.nom}"></span>
+    </div>
+  </div>
+</div>
+      <div class="box-footer">
+        <a href="/film" class="btn btn-back">Back to List</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+  });
+</script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</body>
+</html>

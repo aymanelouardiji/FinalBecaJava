@@ -1,0 +1,32 @@
+<!-- sidebar: style can be found in sidebar.less -->
+<section class="sidebar" th:fragment="sidebar">
+    <!-- Sidebar Menu -->
+    <ul class="sidebar-menu" data-widget="tree">
+        <!-- <li class="header"></li> -->
+        <li><a href="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li><a href="/film"><i class="fa fa-dashboard"></i> <span>Films</span></a></li>
+        <li><a href="/genre"><i class="fa fa-dashboard"></i> <span>Genres</span></a></li>
+        <li><a href="/seance"><i class="fa fa-dashboard"></i> <span>Seances</span></a></li>
+        <li><a href="/salle"><i class="fa fa-dashboard"></i> <span>Salles</span></a></li>
+        <li><a href="/personne"><i class="fa fa-user"></i> List of Personnes</a></li>
+
+
+
+
+        <li class="treeview">
+            <a href="#"><i class="fa fa-folder"></i> <span>Registration</span>
+                <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/customers"><i class="fa fa-circle-o"></i> List Customers</a></li>
+                <li><a href="/customers/add"><i class="fa fa-circle-o"></i> Add Customers</a></li>
+                <li><a href="/users"><i class="fa fa-user"></i> List of Users</a></li>
+                <li><a href="/users/add"><i class="fa fa-user-plus"></i> Add Users</a></li>
+            </ul>
+        </li>
+    </ul>
+    <!-- /.sidebar-menu -->
+</section>
+<!-- /.sidebar -->

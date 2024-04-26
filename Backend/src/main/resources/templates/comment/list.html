@@ -1,0 +1,57 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+  <title>Clients</title>
+</head>
+<body>
+<section layout:fragment="header">
+  <h1>Clients</h1>
+  <ol class="breadcrumb">
+    <li><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li class="active">Clients</li>
+  </ol>
+</section>
+<div layout:fragment="content">
+  <div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Lists</h3>
+      <div class="box-tools pull-right">
+        <br clear="all" />
+      </div>
+    </div>
+    <div class="box-body no-padding">
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th>
+          <th>Content</th>
+          <th>Date Of Post</th>
+          <th>Film Id & Name </th>
+          <th>User name</th>
+        </tr>
+        <tr th:each="row : ${list}">
+          <td th:text="${row.id}"></td>
+          <td th:text="${row.content}"></td>
+          <td th:text="${row.dateOfPost}"></td>
+          <td th:text="${row.film.id} +' - ' +${row.film.titre}"></td>
+          <td th:text="${row.user.username}"></td>
+          <td>
+            <a th:href="@{/comment/delete/{id}(id=${row.id})}" class="btn btn-danger">Delete</a>
+          </td>
+
+        </tr>
+      </table>
+    </div>
+    <div class="box-footer clearfix">
+      <ul class="pagination pagination-sm no-margin pull-right">
+        <li><a href="/comment/1">First</a></li>
+        <li th:each="p : ${#numbers.sequence(1, endIndex/beginIndex)}" th:class="${p == currentIndex} ? 'active' : ''">
+          <a th:href="${'/comment/' + p}" th:text="${p}"></a>
+        </li>
+        <li><a th:href="${'/comment/' + endIndex}">Last</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>

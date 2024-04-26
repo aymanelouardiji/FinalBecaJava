@@ -1,0 +1,107 @@
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-7 col-lg-5">
+        <div class="login-wrap p-4 p-md-5">
+          <div class="icon d-flex align-items-center justify-content-center">
+            <span class="fa fa-user-o"></span>
+          </div>
+          <h3 class="text-center mb-4">S'inscrire</h3>
+          <form
+            class="login-form"
+            [formGroup]="formRegister"
+            (ngSubmit)="registerUser()"
+          >
+              
+              
+                
+              
+            <div class="form-group">
+              <input
+                formControlName="username"
+                name="username"
+                id="username"
+                type="text"
+                class="form-control rounded-left"
+                placeholder="Username"
+                required
+              />
+              <div
+                class="text-danger"
+                *ngIf="
+                  formRegister.get('username').hasError('required') &&
+                  formRegister.get('username').touched
+                "
+              >
+              Username is required
+              </div>
+            </div>
+            
+
+            
+            <div class="form-group">
+              <input
+                formControlName="email"
+                name="email"
+                id="email"
+                type="email"
+                class="form-control rounded-left"
+                placeholder="Email"
+                required
+              />
+              <div
+                class="text-danger"
+                *ngIf="
+                  formRegister.get('email').hasError('email') &&
+                  formRegister.get('email').touched
+                "
+              >
+                Email doit etre instutitionnel "@etu.uae.ac.ma"
+              </div>
+            </div>
+            <div class="form-group d-flex">
+              <input
+                formControlName="password"
+                name="password"
+                id="password"
+                type="password"
+                class="form-control rounded-left"
+                placeholder="Mot de passe"
+                required
+              />
+            </div>
+            <div class="form-group d-flex">
+              <input
+                formControlName="passwordConfirm"
+                name="passwordConfirm"
+                id="passwordConfirm"
+                type="password"
+                class="form-control rounded-left"
+                placeholder="Confirmation du mot de passe"
+                required
+              />
+            </div>
+            <div class="text-danger" *ngIf="formRegister.hasError('mismatch')">
+              Les mots de passe ne correspondent pas.
+            </div>
+            <div class="form-group">
+              <button
+                type="submit"
+                class="form-control btn btn-primary rounded submit px-3"
+              >
+                S'inscrire
+              </button>
+            </div>
+            <h4
+              *ngIf="error != ''"
+              style="text-align: center"
+              class="alert-danger p-2 m-5 rounded"
+            >
+              {{ error }}
+            </h4>
+          </form>
+        </div> 
+      </div>
+    </div>
+  </div>
+</section>

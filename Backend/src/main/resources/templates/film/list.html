@@ -1,0 +1,70 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <title>Liste des Films</title>
+</head>
+<body>
+<section layout:fragment="header">
+    <h1>Liste des Films</h1>
+    <ol class="breadcrumb">
+        <li><a href="/"><i class="fa fa-dashboard"></i> Tableau de bord</a></li>
+        <li class="active">Liste des Films</li>
+    </ol>
+</section>
+<div layout:fragment="content">
+    <div class="box">
+        <div class="box-header with-border">
+            <h3 class="box-title">Liste des Films</h3>
+            <div class="box-tools pull-right">
+                <a href="/film/add" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter un Film</a>
+            </div>
+        </div>
+        <div class="box-body no-padding">
+            <table class="table table-striped">
+                <tr>
+                    <th>ID</th>
+                    <th>Titre</th>
+                    <th>Genre</th>
+                    <th>Réalisateur</th>
+                    <th>Nationalité</th>
+                    <th>Durée</th>
+                    <th>Date de Parution</th>
+                    <th>Actions</th>
+                </tr>
+                <tr th:each="film : ${listFilms}">
+                    <td>
+                        <a th:href="@{/film/details/{id}(id=${film.id})}">
+                            <i class="fa fa-info-circle"></i>
+                            <span th:text="${film.id}"></span>
+                        </a>
+                    </td>
+                    <td th:text="${film.titre}"></td>
+                    <td th:text="${film.genre.libelle}"></td>
+                    <td th:text="${film.realisateur != null} ? ${film.realisateur.nom} : 'Non renseigné'"></td>
+                    <td th:text="${film.nationalite.libelle}"></td>
+                    <td th:text="${film.duree}"></td>
+                    <td th:text="${#dates.format(film.addedDate, 'dd/MM/yyyy')}"></td>
+                    <td>
+                        <a th:href="@{/film/edit/{id}(id=${film.id})}">Éditer</a>
+
+                        <a th:href="@{/film/delete/{id}(id=${film.id})}">Supprimer</a>
+
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="box-footer clearfix">
+            <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a href="/film/1">First</a></li>
+                <li th:each="p : ${#numbers.sequence(1, endIndex/beginIndex)}" th:class="${p == currentIndex} ? 'active' : ''">
+                    <a th:href="${'/film/' + p}" th:text="${p}"></a>
+                </li>
+                <li><a th:href="${'/film/' + endIndex}">Last</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

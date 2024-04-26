@@ -1,0 +1,189 @@
+<div class="container">
+    <div class="col-lg-8 border p-3 main-section bg-white">
+        <div class="row hedding m-0 pl-3 pt-0 pb-3">
+            Film's Details 
+        </div>
+        <div class="row m-0">
+            <div class="col-lg-4 left-side-product-box pb-3">
+                <img src="../../assets/images/babhara.jpg" class="border p-3">
+            </div>
+            <div class="col-lg-8">
+                <div class="right-side-pro-detail border p-3 m-0">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <span>Bab Al HARA </span>
+                            <p class="m-0 p-0" style="color: blue;">Bab Al HARA</p>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="rating-container">
+                                <i class="fa-solid fa-star" (click)="rateProduct(1)"></i>
+                                <i class="fa-solid fa-star" (click)="rateProduct(2)"></i>
+                                <i class="fa-solid fa-star" (click)="rateProduct(3)"></i>
+                                <i class="fa-solid fa-star" (click)="rateProduct(4)"></i>
+                                <i class="fa-solid fa-star" (click)="rateProduct(5)"></i>
+                            </div>
+                            <div class="product-rating">
+                                Rating: {{ productRating }}
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="col-lg-12 pt-2">
+                            <h5 style="color: blue;">Description</h5>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris.</span>
+                            <hr class="m-0 pt-2 mt-2">
+                        </div>
+                        <div class="col-lg-12">
+                            <p class="tag-section"><strong>Nationality : </strong><a href="">Syrie</a></p>
+                        </div>
+                        <div class="col-lg-12" >
+                            <p class="tag-section"><strong>Genre : </strong>
+                                <button class="btn btn-primary btn-sm">Drama</button> 
+                                <span class="button-space"></span>
+                                <button class="btn btn-primary btn-sm">Histoire</button> 
+                                <span class="button-space"></span>
+                                <button class="btn btn-primary btn-sm">Romance</button>
+                            </p>
+                        </div>
+                        <div class="col-lg-12">
+                            <p class="tag-section"><strong>Realisateur : </strong><a href="">Adam Smith</a></p>
+                        </div>
+                        <div class="col-lg-12">
+                            <p class="tag-section"><strong>Durée : </strong><a href="">02:25:12</a></p>
+                        </div>
+                        
+                        <div class="col-lg-12 mt-3">
+                            <div class="row">
+                                <div class="col-lg-6 pb-2" >
+                                    <button
+                                        class="btn btn-success"
+                                        type="button"
+                                        data-toggle="modal"
+                                        data-target="#commentModal"
+                                        >
+                                        Commenter
+                                        </button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center pt-3">
+                <h4>Acteurs</h4>
+            </div>
+        </div>
+        <div class="row mt-3 p-0 text-center pro-box-section">
+            <div class="col-lg-3 pb-2">
+                <div class="pro-box border p-0 m-0">
+                    <img src="../../assets/images/abuhatem.jpg"> 
+                    <h6 class="text-center" style="color: black;">Wafiq Zaim</h6>
+                </div>
+            </div>
+            <div class="col-lg-3 pb-2">
+                <div class="pro-box border p-0 m-0">
+                    <img src="../../assets/images/Wael_Sharaf.jpg">
+                    <h6 class="text-center" style="color: black;">Wael Charaf</h6>
+                </div>
+            </div>
+            <div class="col-lg-3 pb-2">
+                <div class="pro-box border p-0 m-0">
+                    <img src="../../assets/images/صباح-الجزائري-4.jpg">
+                    <h6 class="text-center" style="color: black;">Sabah Jazairi</h6>
+
+                </div>
+            </div>
+            <div class="col-lg-3 pb-2">
+                <div class="pro-box border p-0 m-0">
+                    <img src="../../assets/images/abo diab.jpg">
+                    <h6 class="text-center" style="color: black;">Qosay Khuly</h6>
+                </div>
+            </div>
+        </div>
+        <!--List of Comments-->
+<section style="background-color: #f7f6f6;">
+    <div class="container my-5 py-5 text-dark">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12 col-lg-10 col-xl-8">
+         
+  
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex flex-start">
+                <img class="rounded-circle shadow-1-strong me-3"
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(26).webp" alt="avatar" width="40"
+                  height="40" />
+                <div class="w-100">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h6 class="text-primary fw-bold mb-0">
+                      lara_stewart
+                      <span class="text-dark ms-2">Hmm, This poster looks cool</span>
+                    </h6>
+                    <p class="mb-0">2 days ago</p>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex flex-start">
+                <img class="rounded-circle shadow-1-strong me-3"
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(21).webp" alt="avatar" width="40"
+                  height="40" />
+                <div class="w-100">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h6 class="text-primary fw-bold mb-0">
+                      the_sylvester_cat
+                      <span class="text-dark ms-2">Loving your work and profile! </span>
+                    </h6>
+                    <p class="mb-0">3 days ago</p>
+                  </div>
+        
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+    </div>
+    
+</div>
+
+
+           <!-- Modal -->
+<div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="commentModalLabel">Comment Form</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="comment">Your Comment</label>
+              <textarea class="form-control" id="comment" rows="3"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

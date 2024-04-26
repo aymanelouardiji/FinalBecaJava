@@ -1,0 +1,74 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+<head>
+  <title>Edit Person</title>
+</head>
+<body>
+<section layout:fragment="header">
+  <h1>Edit Person</h1>
+  <ol class="breadcrumb">
+    <li><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+    <li><a href="/personne">Person List</a></li>
+    <li class="active">Edit Person</li>
+  </ol>
+</section>
+<div layout:fragment="content">
+  <div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Form</h3>
+      <div class="box-tools pull-right">
+        <a href="/personne" type="button" class="btn btn-box-tool"><i class="fa fa-list-ul"></i></a>
+      </div>
+    </div>
+    <form enctype="multipart/form-data" data-toggle="validator" role="form" th:object="${personne}"
+          th:action="@{/personne/save}" method="post">
+      <div class="box-body">
+        <input type="hidden" th:field="*{id}"/>
+
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input type="text" required="true" class="form-control" th:field="*{nom}" id="nom"/>
+        </div>
+        <div class="form-group">
+          <label for="prenom">Prenom</label>
+          <input type="text" required="true" class="form-control" th:field="*{prenom}" id="prenom"/>
+        </div>
+        <div class="form-group">
+          <label for="file">Photo</label>
+          <input type="file" class="form-control" id="file" name="file" accept="image/*">
+          <!-- Display current photo if available -->
+          <img th:if="${personne.photo}" th:src="@{'/' + ${personne.photo}}" class="img-fluid"
+               alt="Current Photo"/>
+        </div>
+        <div class="form-group">
+          <label for="dateNaissance">Date Naissance</label>
+          <input type="date" required="true" class="form-control" th:field="*{dateNaissance}"
+                 id="dateNaissance"/>
+        </div>
+        <div class="form-group">
+          <label for="typePersonne">Type Personne</label>
+          <select class="form-control" id="typePersonne" name="typePersonne" required th:field="*{typePersonne}">
+            <option value="">Select Type</option>
+            <option th:selected="(${typePersonne} != null)?${typePersonne}=='ACTEUR': false" value="ACTEUR">Acteur</option>
+            <option value="REALISATEUR"
+                    th:selected="(${typePersonne} != null)?${typePersonne}=='REALISATEUR': false" >Réalisateur</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="nationalite" >Nationalité</label>
+          <select th:field="*{nationalite}" class="form-control" id="nationalite" name="nationalite">
+            <option th:each="nat : ${listeNationalites}"
+            th:value="${nat.id}" th:text="${nat.libelle}"
+            th:selected="(${nationalite} != null)?${nat.id} == ${nationalite.id} : false"></option>
+          </select>
+        </div>
+      </div>
+      <div class="box-footer">
+        <button class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+</body>
+</html>
